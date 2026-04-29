@@ -53,8 +53,25 @@ cp /path/to/claude-code-c-suite-agents/CLAUDE.md.template ./CLAUDE.md
 ### 2. `CLAUDE.md` を埋める
 
 `CLAUDE.md` 内のプレースホルダー（`{{...}}` の箇所）を自社情報で置換します。
+ゼロから埋めるのが面倒な場合は、`examples/CLAUDE.sample-studio.md`（架空の一人合同会社の記入例）をベースに書き換えるのが速いです。
 
-### 3. エージェントの呼び出し
+```bash
+cp examples/CLAUDE.sample-studio.md /path/to/your/project/CLAUDE.md
+# その後、自社情報に置換
+```
+
+### 3. パーミッション設定（任意）
+
+`.claude/settings.json.template` に、ひとり経営者の Claude Code 利用を想定した安全めなデフォルト許可（git・各種パッケージマネージャ・read-only シェル・公式ドキュメント参照など）が入っています。
+そのまま使うなら `settings.json` にコピー、用途に応じて追加・削除してください。
+
+```bash
+cp .claude/settings.json.template .claude/settings.json
+```
+
+なお、個別マシン固有の許可は `settings.local.json`（`.gitignore` 済み）に書くとリポジトリを汚さずに済みます。
+
+### 4. エージェントの呼び出し
 
 Claude Code 上で `/agents` コマンドを使うか、自然言語で呼び出します。
 
@@ -131,6 +148,10 @@ cp -r claude-code-c-suite-agents/.claude /path/to/your/project/
 cp claude-code-c-suite-agents/CLAUDE.md.template /path/to/your/project/CLAUDE.md
 # Edit CLAUDE.md to fill in your company context
 ```
+
+If filling in placeholders from scratch feels tedious, start from the worked example in `examples/CLAUDE.sample-studio.md` (a fictional one-person LLC running both SaaS and consulting).
+
+A pre-configured permission set for solo founders ships in `.claude/settings.json.template` — copy it to `settings.json` for safe defaults (git, package managers, read-only shell utilities, official docs).
 
 Inside Claude Code, invoke any agent with `@cfo`, `@cto`, etc.
 
