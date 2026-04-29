@@ -1,25 +1,31 @@
 {
-  // Customized for a bilingual (JP/EN) docs repo.
+  // Customized for a bilingual (JP/EN) docs repo containing LLM prompt files.
+  // Agent definitions in .claude/agents/ and example CLAUDE.md files are
+  // intended as LLM prompts, not standalone docs, so they are excluded
+  // from markdown linting.
   "config": {
-    // Line length: Japanese paragraphs run long; we don't enforce wrapping.
+    // Line length: Japanese paragraphs run long.
     "MD013": false,
     // Multiple H1: README has both JP and EN H1 sections.
     "MD025": false,
     // Inline HTML: we use <a id="english"></a> as a JP→EN anchor.
     "MD033": false,
-    // Duplicate headings: only flag duplicates within the same parent (siblings_only).
+    // Duplicate headings: only flag duplicates within the same parent.
     "MD024": { "siblings_only": true },
-    // Bare URLs: allowed (we sometimes inline raw URLs in CHANGELOG/etc.).
+    // Bare URLs: allowed (we sometimes inline raw URLs).
     "MD034": false,
-    // Emphasis as heading: allow ** inside paragraphs.
+    // Emphasis as heading: allow ** in paragraphs.
     "MD036": false
   },
   "globs": [
     "**/*.md"
   ],
   "ignores": [
-    "node_modules",
-    ".git",
-    "CLAUDE.md"
+    "node_modules/**",
+    ".git/**",
+    "CLAUDE.md",
+    "CLAUDE.md.template",
+    ".claude/agents/**",
+    "examples/CLAUDE.*.md"
   ]
 }
