@@ -43,6 +43,5 @@ jobs:
             --max-concurrency 4
             --exclude '^https://img\.shields\.io/'
             --exclude '^https://github\.com/.*/actions/workflows/.*/badge\.svg$'
-            --exclude-mail
             './**/*.md'
           fail: true

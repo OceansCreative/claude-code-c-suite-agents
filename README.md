@@ -18,7 +18,7 @@
 
 `CLAUDE.md` に自社の経営コンテキスト（事業フェーズ・プロダクト・技術スタック・判断ルール）を一度書いておけば、各エージェントがそれを踏まえて回答してくれます。
 
-```
+```text
 あなた: @cfo
         来期の役員報酬を上げるか下げるか迷っている。判断材料を出して。
 
@@ -84,7 +84,7 @@ cp .claude/settings.json.template .claude/settings.json
 
 Claude Code 上で `/agents` コマンドを使うか、自然言語で呼び出します。
 
-```
+```text
 @cfo 来月のキャッシュフロー予測を出して
 @cto 既存 DB スキーマをレビューして
 @clo この業務委託契約書のリスク箇所を洗い出して
@@ -144,7 +144,7 @@ MIT License - [LICENSE](./LICENSE) を参照。
 
 A template defining **13 specialist agents** for [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) that act as the executive team for a one-person operation. Define your business context once in `CLAUDE.md`, and every agent advises based on it.
 
-```
+```text
 You: @cfo
      I'm torn on whether to raise or cut my owner's salary next year.
 
@@ -209,7 +209,7 @@ Machine-specific permissions belong in `settings.local.json` (already in `.gitig
 
 Use the `/agents` command or natural language inside Claude Code:
 
-```
+```text
 @cfo Forecast next month's cash flow
 @cto Review my existing DB schema
 @clo Highlight risks in this service agreement

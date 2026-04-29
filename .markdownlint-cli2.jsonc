@@ -12,6 +12,8 @@
     "MD025": false,
     // Blanks around lists: cosmetic.
     "MD032": false,
+    // Blanks around fenced code blocks: cosmetic.
+    "MD031": false,
     // Inline HTML: we use <a id="english"></a> as a JP→EN anchor.
     "MD033": false,
     // First line H1: PR templates and similar partials legitimately lack H1.
