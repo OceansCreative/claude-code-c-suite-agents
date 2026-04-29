@@ -1,0 +1,25 @@
+{
+  // Customized for a bilingual (JP/EN) docs repo.
+  "config": {
+    // Line length: Japanese paragraphs run long; we don't enforce wrapping.
+    "MD013": false,
+    // Multiple H1: README has both JP and EN H1 sections.
+    "MD025": false,
+    // Inline HTML: we use <a id="english"></a> as a JP→EN anchor.
+    "MD033": false,
+    // Duplicate headings: only flag duplicates within the same parent (siblings_only).
+    "MD024": { "siblings_only": true },
+    // Bare URLs: allowed (we sometimes inline raw URLs in CHANGELOG/etc.).
+    "MD034": false,
+    // Emphasis as heading: allow ** inside paragraphs.
+    "MD036": false
+  },
+  "globs": [
+    "**/*.md"
+  ],
+  "ignores": [
+    "node_modules",
+    ".git",
+    "CLAUDE.md"
+  ]
+}

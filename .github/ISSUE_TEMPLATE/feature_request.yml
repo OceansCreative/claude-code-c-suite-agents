@@ -1,0 +1,58 @@
+name: 機能要望 / Feature request
+description: 新しいエージェント・改善・追加機能の提案 / Propose a new agent, improvement, or addition
+title: "[Feature]: "
+labels: ["enhancement", "triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        提案ありがとうございます。背景（どんな状況で困ったか）を書いていただけると判断しやすくなります。
+        Thanks. Please describe the situation that led to this proposal.
+
+  - type: dropdown
+    id: kind
+    attributes:
+      label: 種類 / Kind
+      options:
+        - 新エージェント追加 / New agent
+        - 既存エージェント改善 / Improve existing agent
+        - ドキュメント改善 / Documentation improvement
+        - examples 追加 / New example
+        - その他 / Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: 解決したい課題 / Problem you're trying to solve
+      description: どんな状況で何に困ったか / What pain point led you here?
+      placeholder: 例：海外取引が増えたので、英文契約書の review に特化したエージェントが欲しい
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 提案内容 / Proposed solution
+      description: 具体的にどんな振る舞いをするエージェント / 機能か
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 検討した代替案 / Alternatives considered
+      description: 既存エージェントで対応できないか、別の解決策はないか
+    validations:
+      required: false
+
+  - type: textarea
+    id: scope
+    attributes:
+      label: スコープ確認 / Scope check
+      description: |
+        このリポジトリは「ひとり経営者の意思決定を補佐する」スコープです。提案がこの範囲に収まる理由を書いてください。
+        This repo's scope is "supporting solo founder decision-making". Explain how your proposal fits.
+    validations:
+      required: true

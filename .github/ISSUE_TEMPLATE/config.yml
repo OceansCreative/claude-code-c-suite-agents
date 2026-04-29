@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: 質問・相談 / Questions and discussion
+    url: https://github.com/OceansCreative/claude-code-c-suite-agents/discussions
+    about: バグ報告・機能要望ではなく、使い方の質問や議論はこちら / For usage questions and discussion, not bug reports
+  - name: セキュリティ報告 / Security report
+    url: https://github.com/OceansCreative/claude-code-c-suite-agents/security/policy
+    about: 脆弱性は公開 Issue ではなく非公開で / Report vulnerabilities privately, not in public issues

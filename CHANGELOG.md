@@ -3,6 +3,26 @@
 このプロジェクトの注目すべき変更を記録します。
 書式は [Keep a Changelog](https://keepachangelog.com/ja/1.1.0/) に準拠し、バージョニングは [Semantic Versioning](https://semver.org/lang/ja/) に従います。
 
+## [1.0.3] - 2026-04-29
+
+### Added
+- `CODE_OF_CONDUCT.md`（Contributor Covenant 2.1 ベース、JP/EN）
+- `.github/ISSUE_TEMPLATE/bug_report.yml` / `feature_request.yml` / `config.yml`（GitHub フォーム形式の Issue テンプレ、JP/EN）
+- `.github/PULL_REQUEST_TEMPLATE.md`（PR チェックリスト、JP/EN）
+- `.github/FUNDING.yml`（OceansBase へのカスタム sponsor リンク）
+- `.github/workflows/lint.yml`（agent-lint / markdownlint / lychee link checker の 3 ジョブ CI）
+- `scripts/lint-agents.sh`（フロントマター・名前一致・許可ツール・必須セクションの自動検証）
+- `.markdownlint-cli2.jsonc`（バイリンガル H1 等を許容するルール調整）
+- `lychee.toml`（バッジ URL 等の除外設定）
+- README に 4 種のバッジ追加（License / Release / Lint status / Stars）
+- `examples/CLAUDE.sole-proprietor.md`（個人事業主版の記入例）
+- `examples/CLAUDE.early-stage-startup.md`（シード期ひとり株式会社版の記入例）
+- `examples/README.md` を一覧表 + 使い分けガイドに拡充
+
+### Fixed
+- 日本語 README から `CONTRIBUTING.md` へのリンクが欠けていた問題を修正
+- README 末尾で `CODE_OF_CONDUCT.md` を案内（日英両方）
+
 ## [1.0.2] - 2026-04-29
 
 ### Fixed
@@ -40,6 +60,7 @@
 - `.gitignore`（CLAUDE.md 実体・settings.local.json などを除外）
 - MIT License
 
+[1.0.3]: https://github.com/OceansCreative/claude-code-c-suite-agents/releases/tag/v1.0.3
 [1.0.2]: https://github.com/OceansCreative/claude-code-c-suite-agents/releases/tag/v1.0.2
 [1.0.1]: https://github.com/OceansCreative/claude-code-c-suite-agents/releases/tag/v1.0.1
 [1.0.0]: https://github.com/OceansCreative/claude-code-c-suite-agents/releases/tag/v1.0.0

@@ -1,0 +1,22 @@
+# Lychee link checker config
+# https://lychee.cli.rs/
+
+# Skip checks that produce noise on this repo
+exclude = [
+  # GitHub badge endpoints — sometimes return 302 / rate-limit during CI
+  "^https://img\\.shields\\.io/.*",
+  # GitHub Actions badge for our own workflow (chicken-and-egg on first run)
+  "^https://github\\.com/.*/actions/workflows/.*/badge\\.svg$",
+]
+
+# Treat redirects as valid
+accept = [200, 204, 301, 302, 303, 307, 308]
+
+# Reasonable timeout
+timeout = 20
+
+# Don't check mailto: links
+exclude_mail = true
+
+# Don't probe localhost
+exclude_loopback = true
