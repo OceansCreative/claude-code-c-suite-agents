@@ -6,10 +6,16 @@
   "config": {
     // Line length: Japanese paragraphs run long.
     "MD013": false,
+    // Blanks around headings: cosmetic; both styles are readable.
+    "MD022": false,
     // Multiple H1: README has both JP and EN H1 sections.
     "MD025": false,
+    // Blanks around lists: cosmetic.
+    "MD032": false,
     // Inline HTML: we use <a id="english"></a> as a JP→EN anchor.
     "MD033": false,
+    // First line H1: PR templates and similar partials legitimately lack H1.
+    "MD041": false,
     // Duplicate headings: only flag duplicates within the same parent.
     "MD024": { "siblings_only": true },
     // Bare URLs: allowed (we sometimes inline raw URLs).
