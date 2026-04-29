@@ -44,10 +44,13 @@ cfo:    現在のキャッシュ残高と累積損失を踏まえると、私の
 ### 1. リポジトリをクローンして設定をコピー
 
 ```bash
-git clone https://github.com/OceansCreative/claude-code-c-suite-agents.git
+# このリポジトリを任意の場所にクローン
+git clone https://github.com/OceansCreative/claude-code-c-suite-agents.git ~/c-suite-agents
+
+# 自分のプロジェクトディレクトリに移動して設定をコピー
 cd /path/to/your/project
-cp -r /path/to/claude-code-c-suite-agents/.claude .
-cp /path/to/claude-code-c-suite-agents/CLAUDE.md.template ./CLAUDE.md
+cp -r ~/c-suite-agents/.claude .
+cp ~/c-suite-agents/CLAUDE.md.template ./CLAUDE.md
 ```
 
 ### 2. `CLAUDE.md` を埋める
@@ -56,7 +59,8 @@ cp /path/to/claude-code-c-suite-agents/CLAUDE.md.template ./CLAUDE.md
 ゼロから埋めるのが面倒な場合は、`examples/CLAUDE.sample-studio.md`（架空の一人合同会社の記入例）をベースに書き換えるのが速いです。
 
 ```bash
-cp examples/CLAUDE.sample-studio.md /path/to/your/project/CLAUDE.md
+# 記入例をベースにする場合（上の cp コマンドの代わり）
+cp ~/c-suite-agents/examples/CLAUDE.sample-studio.md ./CLAUDE.md
 # その後、自社情報に置換
 ```
 
@@ -131,44 +135,113 @@ MIT License - [LICENSE](./LICENSE) を参照。
 
 > A collection of [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) subagents for solo founders, one-person LLCs, and freelancers. Replicate a full C-suite (CFO, CTO, CLO, etc.) for the cost of a Claude subscription.
 
-## What is this?
+## 🎯 What is this?
 
-Thirteen specialist agents that bring executive-level perspective to your Claude Code workflows. Define your business context once in `CLAUDE.md`, and every agent decides based on it.
+A template defining **13 specialist agents** for [Claude Code](https://docs.claude.com/en/docs/claude-code/overview) that act as the executive team for a one-person operation. Define your business context once in `CLAUDE.md`, and every agent advises based on it.
 
-## Included Agents
+```
+You: @cfo
+     I'm torn on whether to raise or cut my owner's salary next year.
 
-CFO, CTO, CLO, CMO, CPO, CRO, CSO, CISO, plus five specialists:
-code reviewer, competitor analyst, content writer, contract drafter, and grant researcher.
-
-## Quickstart
-
-```bash
-git clone https://github.com/OceansCreative/claude-code-c-suite-agents.git
-cp -r claude-code-c-suite-agents/.claude /path/to/your/project/
-cp claude-code-c-suite-agents/CLAUDE.md.template /path/to/your/project/CLAUDE.md
-# Edit CLAUDE.md to fill in your company context
+cfo: Based on your current cash position and accumulated losses,
+     my priority would be...
+     (concrete advice tailored to your context)
 ```
 
-If filling in placeholders from scratch feels tedious, start from the worked example in `examples/CLAUDE.sample-studio.md` (a fictional one-person LLC running both SaaS and consulting).
+## 👥 Included Agents
 
-A pre-configured permission set for solo founders ships in `.claude/settings.json.template` — copy it to `settings.json` for safe defaults (git, package managers, read-only shell utilities, official docs).
+| Agent | Typical use |
+|---|---|
+| **cfo** | Cash flow, owner's salary, tax strategy, grants vs. loans |
+| **cto** | Tech stack choices, architecture, dev priorities, technical debt |
+| **clo** | Contract review, legal risk, dispute response, terms of service |
+| **cmo** | Marketing strategy, SEO/AIO/LLMO, content, branding |
+| **cpo** | Product roadmap, MVP scoping, feature prioritization |
+| **cro** | Pricing, early-user acquisition, monetization |
+| **cso** | Mid-to-long-term strategy, exit/portfolio decisions |
+| **ciso** | InfoSec policy, privacy law compliance, API ToS |
+| **code-reviewer** | Code quality review, security checks, refactoring |
+| **competitor-analyst** | Competitor research, differentiation, market sizing |
+| **content-writer** | Blog posts, landing pages, Kindle drafts, social copy |
+| **contract-drafter** | Drafting NDAs, service agreements, terms of service |
+| **grant-researcher** | Grant/subsidy research and application support |
 
-Inside Claude Code, invoke any agent with `@cfo`, `@cto`, etc.
+## 🚀 Quickstart
 
-## Philosophy
+### 1. Clone and copy the configuration
 
-Built for **solo operators**, not teams:
-- No "let's hire someone" suggestions in agent rules
-- Cash flow > future revenue
-- Always recommend written contracts
-- Always defer final legal/tax decisions to professionals
+```bash
+# Clone this repo somewhere convenient
+git clone https://github.com/OceansCreative/claude-code-c-suite-agents.git ~/c-suite-agents
 
-## License
+# From your project directory, copy the agents and CLAUDE.md template
+cd /path/to/your/project
+cp -r ~/c-suite-agents/.claude .
+cp ~/c-suite-agents/CLAUDE.md.template ./CLAUDE.md
+```
 
-MIT - free to fork, modify, and use commercially.
+### 2. Fill in `CLAUDE.md`
 
-## Author
+Replace the `{{...}}` placeholders with your company info.
+If filling in from scratch feels tedious, start from the worked example:
 
-Maintained by **Kazushi Ikeda** ([OceansBase](https://oceans-base.com)) — solo IT consulting practice in Shimane, Japan.
+```bash
+cp ~/c-suite-agents/examples/CLAUDE.sample-studio.md ./CLAUDE.md
+# Then customize for your business
+```
+
+### 3. (Optional) Permission settings
+
+`.claude/settings.json.template` ships with a curated permission set tuned for solo-founder workflows (git, package managers, read-only shell utilities, official docs).
+
+```bash
+cp .claude/settings.json.template .claude/settings.json
+```
+
+Machine-specific permissions belong in `settings.local.json` (already in `.gitignore`).
+
+### 4. Invoke agents
+
+Use the `/agents` command or natural language inside Claude Code:
+
+```
+@cfo Forecast next month's cash flow
+@cto Review my existing DB schema
+@clo Highlight risks in this service agreement
+```
+
+## 🛠️ Customization
+
+Each agent at `.claude/agents/*.md` is a Markdown file with YAML frontmatter:
+
+```markdown
+---
+name: cfo
+description: When to consult on financial analysis, runway, and tax strategy
+tools: Read, Write, Edit
+---
+
+You are the CFO of {{COMPANY_NAME}}, advising on financial decisions.
+...
+```
+
+Rewrite `description` / role / criteria to fit your business. Delete agents you don't need. Add new ones.
+
+## 💡 Design Philosophy
+
+This template is built for **solo founders, one-person LLCs, and freelancers** — not teams:
+
+- **Minimize fixed costs** — no agent ever suggests "let's hire someone"
+- **Cash flow first** — current liquidity beats projected revenue
+- **Get it in writing** — legal/contract advice always pushes toward written agreements
+- **Defer to professionals** — final legal/tax/accounting decisions explicitly defer to lawyers and CPAs
+
+## 📜 License
+
+MIT — free to fork, modify, and use commercially. PRs and improvement suggestions welcome (see [CONTRIBUTING.md](./CONTRIBUTING.md)).
+
+## 🙋 Author
+
+Maintained by **Kazushi Ikeda** ([OceansBase](https://oceans-base.com)) — a solo IT consulting practice in Shimane, Japan, doing contract development, IT consulting, and content production.
 
 Hosted under [OceansCreative](https://oceans-creative.com), the company operated by the same founder for SaaS product development. These agents are extracted from a working setup used to run an actual one-person company.
