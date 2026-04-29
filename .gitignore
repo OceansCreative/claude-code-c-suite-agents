@@ -1,0 +1,18 @@
+# Claude Code local-only settings
+.claude/settings.local.json
+
+# Generated outputs (each user's CLAUDE.md outputs)
+outputs/
+reports/
+research/
+
+# OS / IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# User-customized CLAUDE.md (template only is committed)
+CLAUDE.md
+!CLAUDE.md.template
